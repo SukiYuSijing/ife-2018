@@ -1,0 +1,1 @@
+[7/12/2018, 1:42:47 PM] layer "Background.png": Duplicate path: Background.png
