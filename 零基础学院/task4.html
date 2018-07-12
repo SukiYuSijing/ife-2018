@@ -1,213 +1,74 @@
-
+<!DOCTYPE html>
 <html lang="en,zh">
-<head charset="utf-8">
-	<title>个人简历</title>
-	<style type="text/css">
-		header {
-			background-color: rgb(253, 193, 29);
-			color: #333;
-            text-align: center;
-            text-shadow:1px 4px 2px #999999;
-			font-size: 15px;
-			line-height: 44px;
-			height: 44px;
-			width: 100%;
-		} 
 
-		/*banner*/
-		.service-banner {
-			width: 100%;
-			overflow: hidden;
-			position: relative;
-            background: url(https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=811352016,3954437820&fm=27&gp=0.jpg) no-repeat 99% center rgb(0, 0, 0);
-            background-size: 20% 100%;
-			z-index: 0;
-			margin: 0;
-		}
-
-		.service-banner .profile-contents {
-			 margin: 5px 0 0 20px;
-		}
-		.service-banner .profile-contents .service-name {
-			font-size: 32px;
-            color:rgb(253, 193, 29);
-            font-weight: bold;
-			line-height: 50px;
-			margin: 0;
-			padding: 10px 0 0 0;
-		}
-		.service-banner .profile-contents .service-describe {
-			font-size: 12px;
-			line-height: 20px;
-			color: #FBFBFB;
-			margin: 0 0 15px 0;
-			padding: 0;
-			width: 600px;
-		}
-		/*banner*/
-
-		nav {
-			background-color: #eeeeee;
-			text-align: center;
-			font-size: 15px;
-			height: 300px;
-			width: 100px;
-		}
-
-		/*去除间隔*/
-		*{
-			margin: 0;
-			padding:0;
-		}
-
-		a{
-			/*去除锚点下划线效果*/
-			text-decoration:none;
-			color: black;
-		}
-	
-		a:hover{
-		  color:rgb(253, 193, 29);
-		}
-
-
-		li {
-			/*li元素对齐方式，可以是li元素横向展示，如果宽度不够横向，则左对齐展示*/
-			/*float: left;*/
-			/*字重*/
-			font-weight: bold;
-			line-height: 30px;
-			margin: 0 10px;
-			padding: 0 10px;
-
-		}
-
-
-        /*鼠标移动到li元素上字体颜色背景颜色发生改变*/
-		li:hover {
-			background-color: rgb(0, 0, 0);
-			color: rgb(253, 193, 29);
-			font-size: 13px;
-			/*设置圆角*/
-			border-radius: 20px;	
-		}
-
-		ul {
-			/*去除ul前的序号*/
-			list-style: none;
-		}
-
-
-		.body {
-            border-width: 3px;
-            border-style: solid none;
-            border-color: #333;
-			background-color: #ffffff;
-			color: #999999;
-			margin: 30px 0px 0px 100px;
-			height: 200px;
-			width: 100%;
-			background-color: #fff;
-			/*display: inline;*/
-			/*float: right;*/
-		}
-
-		#mbody {
-			position: relative;
-			z-index: 4;
-			min-height: 800px;
-			max-width: 1200px; 
-			margin: 0 auto;
-		}
-		.mwrapper {
-			 position: relative;
-			 width: 100%;
-			 min-width: 1050px;
-			 margin: 0;
-		}
-
-		.conten-title {
-			font-size: 14px;
-			padding: 15px;
-		}
-
-		.conten-describe {
-			padding: 0;
-			font-size: 16px;
-			line-height: 25px;
-			color: #333;
-			margin: 10px 20px 13px 20px;
-		}
-
-	</style>
+<head>
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>个人简历</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style_3.css">
 </head>
+
 <body>
-	<!-- header -->
-<header>
-	<h2>简历</h2>
-</header>
+    <div class="banner">
+        <h1>简历</h1>
+    </div>
 
-<div class="service-banner" >
-                    <div class="profile-contents">
-                        <p class="service-name">zmysb</p><br />
-                        <p class="service-describe">还在北邮搬砖中</p>
-                        <p class="service-describe">个人技能：网页设计、前端开发、半吊子机器视觉</p>
-                    </div>
+    <div class="main">
+        <section>
+            <h2>基本信息</h2>
+            <div class="content">
+                <span class="item">姓名</span>&#12288
+                <span>张三</span>&#12288&#12288
+                <span class="item">性别</span>&#12288
+                <span>男</span>&#12288&#12288
+                <span class="item">应聘职位</span>&#12288
+                <span>web前端工程师</span>
             </div>
+        </section>
+        <section>
+            <h2>联系方式</h2>
+            <div class="content">
+                <span class="item">手机</span>&#12288
+                <span>12312341234</span>&#12288&#12288
+                <span class="item">Email</span>&#12288
+                <span>
+                    <a href="mailto:joinefe@baidu.com?subject=Hello%20again">joinefe@baidu.com</a>
+                </span>&#12288&#12288
+                <span class="item">个人主页</span>&#12288
+                <span>
+                    <a href="https://github.com/zmysb">GitHub</a>
+                </span>
+            </div>
+        </section>
+        <section>
+            <h2>能力描述</h2>
 
-<div class="mbody">
-	<div class="mwrapper">
-
-		<!-- nav -->
-		<nav style="position: absolute; left: 0px; height: 800px; top: 0px; margin: 0px;">
-			<div style="top: 55px;">
-				<ul>
-					<li><a href="#person">个人简介</a></li>
-					<li><a href="#work">工作经历</a></li>
-					<li><a href="#edu">教育经历</a></li>
-				</ul>
-			</div>
-        </nav>
-
-		<!-- 个人简介 -->
-		<div class="body">
-			<p >
-			<a name="person"></a>
-			<h2 class="conten-title">个人简介</h2>
-			</p>
-			<p class="conten-describe">
-				2017年毕业于重庆邮电大学，在校期间连续4年获得优秀学生奖学金；<br>
-				2017年北京邮电大学研究僧搬砖中。。。
-			</p>
-		</div>
-
-		<!-- 工作经验 -->
-		<div class="body">
-			<p>
-			<a name="work"></a>
-
-			<h2 class="conten-title">工作经验</h2>
-			</p>
-			<p class="conten-describe">
-				2016年在xxxxx实习；<br>2017年纯玩；<br>2018年想实习来着；
-			</p>
-		</div>
-
-		<!-- 教育经历 -->
-		<div class="body">
-			<p>
-			<a name="edu"></a>
-			<h2 class="conten-title">教育经历</h2>
-
-			</p>
-			<p class="conten-describe">
-				2013-2017 重庆邮电大学 计算机科学与技术；<br>
-				2017-2020 北京邮电大学 计算机技术<br>
-			</p>
-		</div>
-	</div>
-</div>
-
+            <p>
+                <span class="item">技术能力</span>
+                <br/>数量掌握HTML,CSS,JavaScript</p>
+            <p>
+                <span class="item">综合能力</span>
+                <br/>数量掌握HTML,CSS,JavaScript</p>
+        </section>
+        <section>
+            <h2>教育经历</h2>
+            <p>
+                <span class="item">本科</span>
+                <br/>百度前端技术学院小薇学院</p>
+            <p>
+                <span class="item">研究生</span>
+                <br/>百度前端技术学院大斌学院</p>
+        </section>
+        <section>
+            <h2>项目经历</h2>
+            <p>
+                <span class="item">小度小度</span>
+                <br/>作为前端工程师角色参与了ABC组件的开发</p>
+            <p>
+                <span class="item">研究生</span>
+                <br/>作为文档工程师参与了SAN Doc编写</p>
+        </section>
+    </div>
 
 </body>
-</html>
+<script></script>

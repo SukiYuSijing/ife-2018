@@ -1,0 +1,109 @@
+header, footer{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(61, 60, 61);
+    margin: 0;
+}
+
+footer {
+    height: 100px;
+    background-color: rgb(128, 127, 127);
+}
+
+footer p{
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.5em;
+}
+
+.header-content, .banner-content, .nav-content, .main-content{
+    width: 960px;
+    margin: 0 auto;
+    padding: 2px;
+}
+
+.logo, ul li, .four-way div, .three-way div{
+    display: inline-block;
+}
+
+.logo, footer p{
+    margin: 10px;
+    color: aliceblue;
+}
+
+.friendlink {
+    /* background-color: rgb(22, 127, 219); */
+    font-size: 0.5em;
+    float: right;
+    line-height: 0.25em;
+    vertical-align: top;
+}
+
+.friendlink li {
+    color: aliceblue;
+    text-decoration: underline;
+}
+
+.banner {
+    width: 100%;
+    height: 300px;
+    background-color: rgb(47, 163, 47);
+}
+
+.slideshow{
+    float: right;
+    padding-top: 240px;
+    margin-bottom: 10px;
+}
+
+.slideshow li {
+    width: 20px;
+    border: 1px solid;
+    text-align: center;
+    color: rgb(100, 100, 100);
+    background-color: rgb(255,255,255,0.5);
+    font-size: 0.5em;
+}
+
+li.uniqloslide {
+    height: 30px;
+    background-color: rgb(255,255,255,0.8);
+    vertical-align: bottom;
+}
+
+nav {
+    height: 63px;
+    border-bottom: 1px solid rgb(173, 172, 172);
+    /* background-color: blueviolet */
+    padding: 0;
+}
+
+.navitem li {
+    height: 45px;
+    width: 80px;
+    font-size: 12px;
+    line-height: 45px;
+    border: 1px solid rgb(173, 172, 172);
+    color: rgb(110, 110, 110);
+    border-radius: 15px 15px 0 0;
+    background-color: rgb(241, 241, 241);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+} 
+
+
+.three-way,.four-way{
+    display: flex;
+}
+
+.three-way div,.four-way div  {
+    color:rgb(143, 142, 142);
+    height: 200px;
+    border: 1px solid rgb(173, 172, 172);
+    flex: 1;
+    text-align: center;
+    line-height: 200px;
+    margin: 5px;
+}
+
