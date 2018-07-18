@@ -7,32 +7,119 @@
 </head>
 
 <body>
-    <input id="first-number" type="number" value="0" placeholder="第一个数字">
-    <input id="second-number" type="number" value="0" placeholder="第二个数字">
-    <button id="add-btn" onclick="myFunction(id)">加</button>
-    <button id="minus-btn" onclick="myFunction(id)">减</button>
-    <button id="times-btn" onclick="myFunction(id)">乘</button>
-    <button id="divide-btn" onclick="myFunction(id)">除</button>
-    <p id="result">运算结果</p>
-    <script>
-        function myFunction(key) {
-            console.log(typeof(document.getElementById("first-number").value));
-            a=Number(document.getElementById("first-number").value);
-            b=Number(document.getElementById("second-number").value);
-            if(key=='add-btn'){
-                document.getElementById("result").innerHTML=a+b;
-            };
-            if(key=='minus-btn'){
-                document.getElementById("result").innerHTML=a-b;
-            };
-            if(key=='times-btn'){
-                document.getElementById("result").innerHTML=a*b;
-            };
-            if(key=='divide-btn'){
-                document.getElementById("result").innerHTML=a/b;
-            };
+    <div class="sample-calc">
+        <input id="first-number" type="text" value="0" placeholder="第一个数字">
+        <input id="second-number" type="text" value="0" placeholder="第二个数字">
+        <button id="add-btn" onclick="myFunction1(id)">加</button>
+        <button id="minus-btn" onclick="myFunction1(id)">减</button>
+        <button id="times-btn" onclick="myFunction1(id)">乘</button>
+        <button id="divide-btn" onclick="myFunction1(id)">除</button>
+        <p id="result">运算结果</p>
+    </div>
+
+    <div class="ten2two">
+        <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+        <input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
+        <button id="trans-btn" onclick="myFunction2()">转化为二进制</button>
+        <p id="result1">运算结果</p>
+    </div>
+
+    <div class="gamepass3">
+        跳过3和3的倍数小游戏
+        <button id="gamepa3" onclick="myFunction3()">开始游戏！</button>
+    </div>
+
+    <div class="multiplication">
+        <h4>九九乘法表：</h4>
+        <button  onclick="myFunction4()">生成！</button>
+        <table border="1" id="multipy">
             
+        </table>
+    </div>
+
+    <script>
+        function myFunction1(key) {
+            try {
+                var a = document.getElementById("first-number").value;
+                var b = document.getElementById("second-number").value;
+                var c = document.getElementById("result");
+                if (isNaN(a)) throw "first-number is not a number!";
+                if (isNaN(b)) throw "second-number is not a number!";
+                else {
+                    a = parseInt(a);
+                    b = parseInt(b);
+                    if (key == 'add-btn') {
+                        c.innerHTML = a + b;
+                    };
+                    if (key == 'minus-btn') {
+                        c.innerHTML = a - b;
+                    };
+                    if (key == 'times-btn') {
+                        c.innerHTML = a * b;
+                    };
+                    if (key == 'divide-btn') {
+                        if (b == 0) throw "divided by 0!";
+
+                        else c.innerHTML = a / b;
+                    };
+                }
+
+            } catch (error) {
+                console.log(error);
+            }
         }
+        function myFunction2() {
+            try {
+                var a = document.getElementById("dec-number").value;
+                if (a < 0) throw "输入数字为负！";
+                else {
+                    dec2bin(a);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        function dec2bin(decNumber) {
+            var a = ''
+            d = document.getElementById("bin-bit").value;
+            b = document.getElementById("result1");
+            var c = '';
+            while (decNumber != 0) {
+                c += decNumber % 2;
+                decNumber = parseInt(decNumber / 2);
+            }
+            tmp = c.length
+            for (var i = 0; i < c.length; i++) {
+                a += c[tmp - 1];
+                tmp--;
+            }
+            if (d >= c.length) a = repeat('0', d - c.length) + a;
+            else console.log("bin-bit is too small!")
+            b.innerHTML = "运算结果 " + a;
+
+        }
+        function repeat(str, n) {
+            return new Array(n + 1).join(str);
+        }
+        function myFunction3(){
+            for(var i =1;i<=100;i++){
+                if(i%3==0||i.toString().indexOf('3') != -1) console.log("PA");
+                else console.log(i);
+            }
+        }
+        function myFunction4() {
+            var a = document.getElementById("multipy")
+            for (var i = 1; i <= 9; i++) {
+                a.innerHTML += "<tr id='row" + i + "'></tr>"
+                for (var j = 1; j <= 9; j++) {
+                    var b = document.getElementById("row" + i);
+                    if (j >= i) b.innerHTML += "<td>" + j + '*' + i + '=' + j * i + "</td>";
+                    else b.innerHTML +="<td></td>";
+                }
+            }
+        }
+
+
 
     </script>
 </body>
