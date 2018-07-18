@@ -1,0 +1,198 @@
+@font-face {
+    font-family: 'snell';
+    src:url('../font/SnellRoundhand-BlackScript.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'open';
+    src:url('../font/OpenSans-Semibold.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "babe";
+    src:url('../font/BEBAS___.TTF');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#cover {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0,0.8);
+    text-align: center;
+    color: antiquewhite;
+}
+
+.cover-content {
+    position: relative;
+    top: 40%;
+}
+
+.cover-content a {
+    text-decoration: none;font-size: xx-small;color: antiquewhite;
+}
+
+.cover-content a:hover {
+    text-decoration: underline;
+}
+
+.cover-content h1 {
+    font-family: "snell";
+    font-size: 4em;
+}
+
+.cover-content span {
+    font-family: "Helvetica Neue Ultralight"; 
+    text-transform: uppercase;
+}
+
+.total {
+    border: 15px solid rgb(221,32,38);
+    margin: 0;
+
+}
+
+header {
+    padding-top: 10px;
+    height: 600px;
+    color: #fff;
+    background-color: rgb(40,40,40);
+}
+
+.header-content {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.avater {
+    height: 200px;
+    background: url(../img/resume/avatar.png) no-repeat 2%;
+    background-size: 18%;
+}
+
+.avater {
+    font-family: 'babe';
+    padding-left: 280px;
+    padding-top: 30px;
+    line-height: 2em;
+}
+
+.resume-item {
+    width: 100%;
+    display: flex;
+}
+
+.resume-item section {
+    padding: 20px;
+}
+
+.resume-item section:nth-child(1){
+    flex: 1;
+    
+}
+
+.resume-item section:nth-child(2){
+    flex: 3;
+}
+
+.resume-item h2 {
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.resume-item p {
+    font-family: "Helvetica Neue Ultralight"; 
+    font-weight: 100;
+}
+
+.resume-item h3 {
+    line-height: 10px;
+}
+
+main {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.main-item h2 {
+    
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.experience > div, .other-skills{
+    display: flex;
+}
+
+.item-detail span {
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.item-detail {
+    padding-top: 20px;
+}
+
+.main-item h3 {
+    display: inline-block;
+    flex: 1;
+    padding: 20px;
+}
+
+.main-item .item-detail {
+    flex: 3;
+    padding: 20px;
+}
+
+.personal-skills{ 
+    flex: 1;
+    padding: 20px;
+}
+
+.other-skills div:nth-child(2) {
+    flex: 3;
+    padding: 20px;
+}
+
+.personal-skills img {
+    width: 200px;
+}
+
+.other-skills h2 {
+    color: rgb(1, 125, 172);
+}
+
+.other-skills p {
+    font-weight: bolder;
+}
+
+.pro-skills > div {
+    display: inline-block;
+    width: 200px;
+    
+}
+
+.pro-skills img {
+    width: 150px;
+}
+
+.hobbies > div {
+    display: inline-block;
+    width: 80px;
+}
+
+.hobbies img {
+    width: 60px;
+}
