@@ -17,3 +17,5 @@ task8[开始感受JS的乐趣](https://zmysb.github.io/ife-2018/%E9%9B%B6%E5%9F%
 task9[“如果”可以“重来”](https://zmysb.github.io/ife-2018/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%AD%A6%E9%99%A2/task9.html)
 
 task10[找到那个DOM](https://zmysb.github.io/ife-2018/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%AD%A6%E9%99%A2/task10.html)
+
+task11[让你和页面对话](https://zmysb.github.io/ife-2018/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%AD%A6%E9%99%A2/task11.html)
