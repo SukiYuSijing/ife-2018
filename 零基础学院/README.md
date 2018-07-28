@@ -21,3 +21,5 @@ task10[找到那个DOM](https://zmysb.github.io/ife-2018/%E9%9B%B6%E5%9F%BA%E7%A
 task11[让你和页面对话](https://zmysb.github.io/ife-2018/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%AD%A6%E9%99%A2/task11.html)
 
 task12[JavaScript里面的居民们](https://zmysb.github.io/ife-2018/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%AD%A6%E9%99%A2/task12.html)
+
+task13[JavaScript里面的居民们](https://zmysb.github.io/ife-2018/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%AD%A6%E9%99%A2/task13.html)
