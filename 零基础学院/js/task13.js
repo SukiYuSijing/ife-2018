@@ -136,54 +136,155 @@ setInterval("start()", 1000);
 
 // --------------------------------------------------------------------
 console.log("\n\n练习四：")
-var year1 = document.querySelector("#year-select");
-var month1 = document.querySelector("#month-select");
-var day1 = document.querySelector("#day-select");
-var hour1 = document.querySelector("#hour-select");
-var minite1 = document.querySelector("#minite-select");
-var second1 = document.querySelector("#second-select");
+//创建一系列options
+createOptions("year-select", 0, 32, "20", true);
+createOptions("month-select", 1, 12, "", false);
+createOptions("day-select", 1, 31, "", false);
+createOptions("hour-select", 0, 23, "", true);
+createOptions("minute-select", 0, 59, "", true);
+createOptions("second-select", 0, 59, "", true);
 
-for (var i = 2001; i < 2033; i++) {
-    year1.innerHTML += '<option value="' + i + '">' + i + '</option>\n';
-}
-for (var i = 2; i < 13; i++) {
-    month1.innerHTML += '<option value="' + i + '">' + i + '</option>\n';
-}
-for (var i = 2; i < 32; i++) {
-    day1.innerHTML += '<option value="' + i + '">' + i + '</option>\n';
-}
-for (var i = 1; i < 24; i++) {
-    if (i < 10) {
-        hour1.innerHTML += '<option value="0' + i + '">0' + i + '</option>\n';
-    } else hour1.innerHTML += '<option value="' + i + '">' + i + '</option>\n';
-}
-for (var i = 1; i < 60; i++) {
-    minite1.innerHTML += '<option value="' + i + '">' + i + '</option>\n';
-    second1.innerHTML += '<option value="' + i + '">' + i + '</option>\n'
-}
-
-
-var selects = document.querySelectorAll('.part4 select');
-var results = document.querySelectorAll("#result-wrapper span");
-
-
-for (var i = 0; i < selects.length; i++) {
-    if (i < 3) {
-        results[i].innerHTML = selects[i].querySelector("option[selected='selected']").value;
-        selects[i].onchange = function () {
-            var index = this.selectedIndex; // 选中索引
-            var value = this.options[index].value; // 选中值
-            results[i].innerHTML = value;
+//当用户改变任意一项输入时，调整月份的天数
+var sel = document.getElementById("selectors");
+sel.onchange = function (e) {
+    var monthVal = document.getElementById("month-select").value;
+    var yearVal = document.getElementById("year-select").value;
+    var dayNum;
+    var mon31 = "1,3,5,7,8,10,12";
+    var mon30 = "4,6,9,11";
+    var mon28 = "2";
+    //根据用户输入的值判断是哪个月份
+    //需要排除选择天数本身的情况
+    if (e.target.id == "year-select" || e.target.id == "month-select") {
+        if (mon28.indexOf(monthVal) !== -1) {
+            dayNum = 28;
+            if (isLeap(Number(yearVal))) {
+                dayNum = 29;
+            }
+        } else if (mon30.indexOf(monthVal) !== -1) {
+            dayNum = 30;
+        } else if (mon31.indexOf(monthVal) !== -1) {
+            dayNum = 31;
         }
-    } else {
-        results[i + 1].innerHTML = selects[i].querySelector("option[selected='selected']").value;
-        selects[i].onchange = function () {
-            var index = this.selectedIndex; // 选中索引
-            var value = this.options[index].value; // 选中值
-            results[i+1].innerHTML = value;
+        //修复用户体验方面的小bug（会重新归零
+        var dayVal = document.getElementById("day-select").value;
+        //移除现在的天数
+        removeOptions("day-select");
+        //创建新的天数
+        createOptions("day-select", 1, dayNum, "", false);
+        var options = document.getElementById("day-select").childNodes;
+        //把用户之前选中的数字更改为默认值
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].value == dayVal) {
+                options[i].selected = "selected";
+            }
         }
     }
-    // results[i].innerHTML=selects[i]
 }
 
+//得到用户输入的值，进行计算，并将结果展示出来
+function displayResult() {
+    //得到用户输入的值
+    var year = Number(document.getElementById("year-select").value);
+    var month = Number(document.getElementById("month-select").value);
+    var day = Number(document.getElementById("day-select").value);
+    var hour = Number(document.getElementById("hour-select").value);
+    var min = Number(document.getElementById("minute-select").value);
+    var sec = Number(document.getElementById("second-select").value);
+    var dateNow = new Date();
+    var dateSel = new Date();
+    //将用户输入的值转化为Date对象
+    //注意转化为Date对象时，month是以0到11为准的
+    dateSel.setFullYear(year, month - 1, day);
+    dateSel.setHours(hour, min, sec);
+    //得到相差值
+    var result = dateDiffer(dateNow, dateSel);
+    //将需要展示的结果格式进行包装
+    //得到星期几
+    var weekday = toWeekday(dateSel);
+    //补齐时分秒的位数
+    hour = addZero(hour);
+    min = addZero(min);
+    sec = addZero(sec);
+    //需要改变的文字内容
+    var text = "";
+    if (dateNow >= dateSel) {
+        text = "已经过去";
+    } else if (dateNow < dateSel) {
+        text = "还有";
+    }
+    //将结果放在result-wrapper中
+    document.getElementById("result-wrapper").innerHTML = "现在距离 " + year + "年" + month + "月" + day + "日星期" + weekday + " " + hour + ":" + min + ":" + sec + " " + text + result[0] + "天" + result[1] + "小时" + result[2] + "分" + result[3] + "秒";
+}
 
+setInterval("displayResult()", 1000);
+
+
+//创建选择项
+function createOptions(id, begin, end, front, bool) {
+    var sel = document.getElementById(id);
+    for (var i = begin; i <= end; i++) {
+        var option = document.createElement("option");
+        if (bool) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+        }
+        option.value = front + i;
+        option.innerHTML = front + i;
+        sel.appendChild(option);
+    }
+}
+//清空选择项
+//这里有个用户体验方面的bug...更换月份或者年份时，用户之前选择的天数会重新归零
+function removeOptions(id) {
+    var sel = document.getElementById(id);
+    var children = sel.childNodes;
+    for (var i = children.length - 1; i >= 0; i--) {
+        sel.removeChild(children[i]);
+    }
+}
+
+//判断是否为闰年
+function isLeap(year) {
+    if (year % 4 == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//两个日期之差，返回数组
+function dateDiffer(dateNow, dateSel) {
+    dateNow = dateNow.getTime();
+    dateSel = dateSel.getTime();
+    var differ = Math.abs(dateNow - dateSel);
+    var dayAmount = 24 * 60 * 60 * 1000;
+    var day = Math.floor(differ / dayAmount);
+    var hourAmount = 60 * 60 * 1000;
+    var hourDiffer = differ - day * dayAmount;
+    var hour = Math.floor(hourDiffer / hourAmount);
+    var minAmount = 60 * 1000;
+    var minDiffer = hourDiffer - hour * hourAmount;
+    var min = Math.floor(minDiffer / minAmount);
+    var secAmout = 1000;
+    var secDiffer = minDiffer - min * minAmount;
+    var sec = Math.floor(secDiffer / secAmout);
+    return [day, hour, min, sec];
+}
+
+//根据日期返回星期几
+function toWeekday(date) {
+    var date = date.getDay();
+    //从日到六
+    var weekdays = ["日", "一", "二", "三", "四", "五", "六"];
+    return weekdays[date];
+}
+
+//位数补齐
+function addZero(num) {
+    if (num < 10) {
+        num = "0" + num;
+    }
+    return num;
+}
