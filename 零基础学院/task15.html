@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <style>
+        table {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='select-wrapper'>
+        <select id="region-select">
+            <option>华东</option>
+            <option>华北</option>
+            <option>华南</option>
+        </select>
+        <select id="product-select">
+            <option>手机</option>
+            <option>笔记本</option>
+            <option>智能音箱</option>
+        </select>
+    </div>
+    <div id="region-radio-wrapper"></div>
+    <div id="product-radio-wrapper"></div>
+    <div id="table-wrapper">
+    </div>
+
+
+    <script>
+        let sourceData = [{
+            product: "手机",
+            region: "华东",
+            sale: [120, 100, 140, 160, 180, 185, 190, 210, 230, 245, 255, 270]
+        }, {
+            product: "手机",
+            region: "华北",
+            sale: [80, 70, 90, 110, 130, 145, 150, 160, 170, 185, 190, 200]
+        }, {
+            product: "手机",
+            region: "华南",
+            sale: [220, 200, 240, 250, 260, 270, 280, 295, 310, 335, 355, 380]
+        }, {
+            product: "笔记本",
+            region: "华东",
+            sale: [50, 60, 80, 110, 30, 20, 70, 30, 420, 30, 20, 20]
+        }, {
+            product: "笔记本",
+            region: "华北",
+            sale: [30, 35, 50, 70, 20, 15, 30, 50, 710, 130, 20, 20]
+        }, {
+            product: "笔记本",
+            region: "华南",
+            sale: [80, 120, 130, 140, 70, 75, 120, 90, 550, 120, 110, 100]
+        }, {
+            product: "智能音箱",
+            region: "华东",
+            sale: [10, 30, 4, 5, 6, 5, 4, 5, 6, 5, 5, 25]
+        }, {
+            product: "智能音箱",
+            region: "华北",
+            sale: [15, 50, 15, 15, 12, 11, 11, 12, 12, 14, 12, 40]
+        }, {
+            product: "智能音箱",
+            region: "华南",
+            sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
+        }]
+
+         var selects = document.querySelectorAll("select");
+         var selectWrapper = document.querySelector("#select-wrapper");
+         var tableWrapper = document.querySelector("#table-wrapper");
+
+        // var regionWrapper = document.querySelector('#region-radio-wrapper');
+        // var productWrapper = document.querySelector('#product-radio-wrapper');
+
+
+        // function generateCheckBox(wrapper, arr) {
+        //     //生成全选checkbox的html，给一个自定义属性表示为全选checkbox，比如checkbox - type="all"
+        //     var allChecked = '<input type="checkbox" id="all">全选</input>'
+        //     var checkboxHtml = allChecked;
+        //     for (var i = 0; i < arr.length; i++) {//遍历参数对象 
+        //         checkboxHtml += '<input type="checkbox" id="item" value="' + arr[i].value + '">' + arr[i].text + '</input>';
+        //     }
+        //     wrapper.innerHTML = checkboxHtml;
+
+        //     var checkedflag = 0;
+        //     wrapper.onclick = function (e) {
+        //         var items = document.querySelectorAll("#" + e.path[1].id + " input");//当前点击复选框所在组的所有复选框
+        //         if (e.target.type == 'checkbox') {//是checkbox
+        //             //读取自定义属性
+        //             if (e.target.id == 'all') {//全选
+        //                 //做全选对应的逻辑
+        //                 for (var i = 0; i < items.length; i++) {
+        //                     items[i].checked = true;
+        //                 }
+        //                 checkedflag = 3;
+        //                 console.log(checkedflag);
+        //             } else {
+        //                 //做子选项对应的逻辑
+        //                 console.log(e.target.checked);
+        //                 // if(checkedflag!=3) document.querySelectorAll("#" + e.path[1].id + "[id='all']").checked=false;
+        //                 // if(e.target.checked==true&&checkedflag==0) e.preventDefault();
+        //                 // if(e.target.checked==true) checkedflag++;
+        //                 // else checkedflag--;
+        //                 // console.log(checkedflag);
+        //             }
+        //         }
+        //     }
+        // }
+
+        // // 对象或数组自己根据喜好实现均可
+        // generateCheckBox(regionWrapper, [{
+        //     value: 1,
+        //     text: "华东"
+        // }, {
+        //     value: 2,
+        //     text: "华北"
+        // }, {
+        //     value: 3,
+        //     text: "华南"
+        // }]);
+
+        // generateCheckBox(productWrapper, [{
+        //     value: 1,
+        //     text: "手机"
+        // }, {
+        //     value: 2,
+        //     text: "笔记本"
+        // }, {
+        //     value: 3,
+        //     text: "智能音箱"
+        // }]);
+
+        // 生成一组CheckBox({
+        //    1: "XXXX",
+        //    2: "YYYY"
+        // });
+
+        selectWrapper.onchange = function (e) {
+            //渲染新的表格(根据select选项获取数据)
+            var a = [];
+            for (var i = 0; i < selects.length; i++) {
+                a.push(selects[i].value);
+            }
+            getTable(getData(a));
+        }
+
+        function getData(a) { //根据select选项获取数据
+            var b = [];
+            for (var i = 0; i < sourceData.length; i++) {
+                if (sourceData[i].region == a[0] && sourceData[i].product == a[1]) {
+                    b.push(sourceData[i])
+                }
+            }
+            console.log(b);
+            return b;
+        }
+
+        function getTable(data) {//渲染新的表格
+            tableWrapper.innerHTML = '';//置空表格
+
+            //输出表头：商品、地区、1月、2月、…… 12月
+            var table = document.createElement('table');
+            var tableHead = ['商品', '地区', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+            var tr = document.createElement('tr');
+            for (var i = 0; i < tableHead.length; i++) {
+                var td = document.createElement('td');
+                td.innerHTML = tableHead[i];
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+
+            for (var i = 0; i < data.length; i++) {
+                var row = table.insertRow();
+                row.insertCell(0).innerHTML = data[i].product;
+                row.insertCell(1).innerHTML = data[i].region;
+                for (var j = 0; j < data[i].sale.length; j++) {
+                    row.insertCell(j + 2).innerHTML = data[i].sale[j];
+                }
+            }
+            tableWrapper.appendChild(table);
+
+
+        }
+    </script>
+</body>
+
+</html>

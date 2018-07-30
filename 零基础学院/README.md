@@ -25,3 +25,5 @@ task12[JavaScript里面的居民们](https://zmysb.github.io/ife-2018/%E9%9B%B6%
 task13[倒数开始 滴答滴 滴答滴](https://zmysb.github.io/ife-2018/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%AD%A6%E9%99%A2/task13.html)
 
 task14[给爱的人发个邮件吧](https://zmysb.github.io/ife-2018/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%AD%A6%E9%99%A2/task14.html)
+
+task15[我是精明的小卖家（一）](https://zmysb.github.io/ife-2018/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%AD%A6%E9%99%A2/task15.html)
