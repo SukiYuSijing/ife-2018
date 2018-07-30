@@ -10,37 +10,39 @@ ul.onclick = function (e) {
 }
 
 document.onkeyup = function (e) {
-    console.log(e.code == 'ArrowUp');
+    flag = false;
     if (!(e.code == 'Enter' || e.code == 'ArrowUp' || e.code == 'ArrowDown')) resetChoose();
     else {
-        console.log(e.code);
         var chooseLi = document.querySelector(".selected");
         var lis = document.querySelectorAll("li");
-        console.log(typeof lis)
         chooseLi.removeAttribute("class");
+        console.log(chooseLi)
         if (e.code == 'ArrowUp') {
+            console.log('up');
             if (chooseLi != lis[0]) {
-                lis[lis.find(chooseLi) - 1].setAttribute("class", "selected");
+                chooseLi.previoussibling.setAttribute("class", "selected");
             } else {
                 lis[lis.length - 1].setAttribute("class", "selected");
+                input.value =lis[lis.length - 1].innerHTML;
             }
         }
         if (e.code == 'ArrowDown') {
+            console.log('down');
             if (chooseLi != lis[lis.length - 1]) {
-                lis[lis.find(chooseLi) + 1].setAttribute("class", "selected");
+                chooseLi.nextSibling.setAttribute("class", "selected");
             } else {
                 lis[0].setAttribute("class", "selected");
             }
         }
         if (e.code == 'Enter') {
             input.value = chooseLi.innerHTML;
-            ul.style.display = 'none';
+            flag = true;
         }
+        
     }
-    input.value = getInput();
+    // input.value = getInput();
     addPoints();
     hidePoints();
-    // console.log(getInput());
 }
 
 // document.onkeydown = function (e) {
@@ -110,7 +112,7 @@ function addPoints() {
 
 function hidePoints() {
     ul.style.display = 'block';
-    if (input.value.length == 0) {
+    if (input.value.length == 0 || flag == true) {
         ul.style.display = 'none';
     } else {
         ul.style.display = 'block';
