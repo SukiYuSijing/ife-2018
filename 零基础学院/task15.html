@@ -192,7 +192,7 @@
             var table = document.createElement('table');
             var tableHead = ['商品', '地区', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
             var tr = document.createElement('tr');
-            console.log(a.length,b.length);
+            console.log(a.length, b.length);
             if (a.length == 1 && b.length > 1) {
                 tableHead = ['地区', '商品', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
             }
@@ -253,24 +253,25 @@
                 tableWrapper.appendChild(table);
             }
             if (a.length > 1 && b.length > 1) {
-                for (var k = 0; k < b.length; k++) {
-                    var row = table.insertRow();
-                    var aaa = row.insertCell(0);
-                    aaa.innerHTML = data[0 + k * b.length].product;
-                    aaa.setAttribute("rowspan", a.length);
-                    row.insertCell(1).innerHTML = data[0 + k * b.length].region;
-                    for (var j = 0; j < data[0 + k * b.length].sale.length; j++) {
-                        row.insertCell(j + 2).innerHTML = data[0 + k * b.length].sale[j];
-                    }
-                    for (var i = 1; i < a.length; i++) {
-                        let row = table.insertRow();
-                        // row.insertCell(0).innerHTML = data[i].region;
-                        row.insertCell(0).innerHTML = data[i + k * b.length].region;
-                        for (var j = 0; j < data[i + k * b.length].sale.length; j++) {
-                            row.insertCell(j + 1).innerHTML = data[i + k * b.length].sale[j];
+                for (let i in data) {
+                    var tr = table.insertRow();
+                    for (let j in data[i]) {
+                        if (j == 'product' && !(i % a.length)) {
+                            var td = tr.insertCell();
+                            td.setAttribute('rowspan', a.length);
+                            td.appendChild(document.createTextNode(data[i][j]));
+                        }
+                        if (j == 'region') {
+                            var td = tr.insertCell();
+                            td.appendChild(document.createTextNode(data[i][j]));
+                        }
+                        if (j == 'sale') {
+                            for (let k in data[i][j]) {
+                                var td = tr.insertCell();
+                                td.appendChild(document.createTextNode(data[i][j][k]));
+                            }
                         }
                     }
-
                 }
                 tableWrapper.appendChild(table);
             }
