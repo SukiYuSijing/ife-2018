@@ -1,0 +1,11 @@
+<svg version="1.1" baseProfile="full" width="300" height="200" 
+  xmlns="http://www.w3.org/2000/svg">
+
+  <line x1="148" y1="200" x2="150" y2="123" stroke="black" fill="transparent" stroke-width="5" />
+  <circle cx="150" cy="100" r="10" fill="black" />
+  <path d="M145 95 C 120 70, 180 70,155 95
+           C180 75,180 125,155 105
+           C180 130,120 130,145 105
+           C155 150,95 80,145 95" stroke="black" fill="transparent"/>
+  <!-- <path d="M10 80 Q 95 10 180 80" stroke="black" fill="transparent"/> -->
+</svg>
