@@ -35,6 +35,7 @@
 3.[设计师学院](https://github.com/zmysb/ife-2018/tree/master/%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2)
 
 ​	task1[制作一个简单的菜单动画效果](https://zmysb.github.io/ife-2018/%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2/task1.html)
+​	task2[初步接触 CSS 2D 变形](https://zmysb.github.io/ife-2018/%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2/task2.html)
 
 ​	
 
