@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>初步接触 CSS 2D 变形</title>
+	<style>
+		li {
+			display: inline-block;
+			height: 70px;
+			width: 60px;
+			border: 2px rgb(206, 206, 206) solid;
+			background-color: rgb(243, 243, 243);
+			text-align: center;
+			line-height: 70px;
+			margin: 0 20px;
+		}
+
+		.box1,
+			{
+			/* 等于skew(30deg),即第二个值不提供默认为零 */
+			transform: skewX(30deg);
+			-ms-transform: skewX(30deg);
+			/* IE 9 */
+			-webkit-transform: skewX(30deg);
+			/* Safari and Chrome */
+			-o-transform: skewX(30deg);
+			/* Opera */
+			-moz-transform: skewX(30deg);
+			/* Firefox */
+		}
+
+		.box2 {
+			/* 不等于scale(0.5);,即第二个值不提供默认为第一个值 */
+			transform: scaleX(0.5);
+			-ms-transform: scaleX(0.5);
+			/* IE 9 */
+			-webkit-transform: scaleX(0.5);
+			/* Safari and Chrome */
+			-o-transform: scaleX(0.5);
+			/* Opera */
+			-moz-transform: scaleX(0.5);
+			/* Firefox */
+		}
+
+		.box3 {
+			transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			/* IE 9 */
+			-webkit-transform: rotate(45deg);
+			/* Safari and Chrome */
+			-o-transform: rotate(45deg);
+			/* Opera */
+			-moz-transform: rotate(45deg);
+			/* Firefox */
+		}
+
+		.box4 {
+			transform: translate(10px, 20px);
+			-ms-transform: translate(10px, 20px);
+			/* IE 9 */
+			-webkit-transform: translate(10px, 20px);
+			/* Safari and Chrome */
+			-o-transform: translate(10px, 20px);
+			/* Opera */
+			-moz-transform: translate(10px, 20px);
+			/* Firefox */
+		}
+
+		.box5 {
+			transform: skewX(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+			-ms-transform: skewX(30deg) translate(10px, 20px);
+			/* IE 9 */
+			-webkit-transform: skewX(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+			/* Safari and Chrome */
+			-o-transform: skewX(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+			/* Opera */
+			-moz-transform: skewX(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+			/* Firefox */
+		}
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li class="box0">box0</li>
+		<li class="box1">box1</li>
+		<li class="box2">box2</li>
+		<li class="box3">box3</li>
+		<li class="box4">box4</li>
+		<li class="box5">box5</li>
+	</ul>
+
+</body>
+
+</html>
