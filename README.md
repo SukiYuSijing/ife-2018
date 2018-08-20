@@ -40,6 +40,10 @@
 
 ​	task3[CSS transition 和 CSS transform 配合制作动画](https://zmysb.github.io/ife-2018/%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2/task3.html)
 
+​	task4[3D 空间的卡片翻转动效](https://zmysb.github.io/ife-2018/%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2/task4.html)
+
+​	task5[纯 CSS 制作绕中轴旋转的立方体](https://zmysb.github.io/ife-2018/%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2/task5.html)
+
 
 ​	
 

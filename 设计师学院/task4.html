@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://jadyoap.bj.bcebos.com/ife%2FcssCatAnimation.html -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>3D 空间的卡片翻转动效</title>
+    <style type="text/css">
+        img {
+            position: absolute;
+        }
+
+        .container {
+            position: relative;
+            height: 350px;
+            width: 250px;
+            margin: 100px auto;
+            perspective: 350;
+            -webkit-perspective: 350;
+            /* Safari and Chrome */
+        }
+
+        .forward {
+            z-index: 2;
+            transition: transform 0.6s linear;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+        }
+
+        .back {
+            transform: rotateY(-180deg);
+            z-index: 1;
+            transition: transform 0.6s linear;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+        }
+
+        .container:hover .forward {
+            transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+            /* Chrome and Safari */
+            -moz-transform: rotateY(180deg);
+            /* Firefox */
+        }
+
+        .container:hover .back {
+            transform: rotateY(0deg);
+            -webkit-transform: rotateY(0deg);
+            /* Chrome and Safari */
+            -moz-transform: rotateY(0deg);
+            /* Firefox */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img class="forward" src="img/正面.jpg" />
+        <img class="back" src="img/反面.jpg" />
+    </div>
+
+</body>
+
+</html>
