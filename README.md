@@ -44,6 +44,8 @@
 
 ​	task5[纯 CSS 制作绕中轴旋转的立方体](https://zmysb.github.io/ife-2018/%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2/task5.html)
 
+​	task6[利用 CSS animation 制作一个炫酷的 Slider](https://zmysb.github.io/ife-2018/%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E9%99%A2/task6.html)
+
 
 ​	
 

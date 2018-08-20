@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>利用 CSS animation 制作一个炫酷的 Slider</title>
+    <style type="text/css">
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .bg {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .bg img {
+            position: absolute;
+            width: 100%;
+        }
+
+        .slider {
+            z-index: 100;
+            width: 900px;
+            height: 120px;
+            position: absolute;
+            top: 400px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .slider img {
+            display: inline-block;
+            width: 150px;
+            padding: 10px;
+            height: 100px;
+            flex: 1;
+        }
+
+        .change1 {
+            animation: moveright 1s ease-out;
+        }
+
+        @keyframes moveright {
+            from {
+                left: -1500px;
+            }
+            to {
+                left: 0;
+            }
+        }
+
+        .change2 {
+            animation: movedown 1s ease-out;
+        }
+
+        @keyframes movedown {
+            from {
+                top: 800px;
+            }
+            to {
+                top: 0;
+            }
+        }
+
+        .change3 {
+            animation: zoomout 1s ease-in;
+        }
+
+        @keyframes zoomout {
+            from {
+                transform: scale(0.1);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .change4 {
+            animation: zoomin 1s ease-out;
+        }
+
+
+        @keyframes zoomin {
+            from {
+                transform: scale(2);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .change5 {
+            animation: spin 1s ease-in;
+        }
+
+        @keyframes spin {
+            from {
+                transform: scale(0.1) rotate(-360deg);
+            }
+            to {
+                transform: scale(1) rotate(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="bg">
+            <img src="img/1.jpg">
+            <img src="img/2.jpeg">
+            <img src="img/3.jpeg">
+            <img src="img/4.jpeg">
+            <img src="img/5.jpeg">
+        </div>
+        <div class="slider">
+            <img id="1" src="img/1.jpg">
+            <img id="2" src="img/2.jpeg">
+            <img id="3" src="img/3.jpeg">
+            <img id="4" src="img/4.jpeg">
+            <img id="5" src="img/5.jpeg">
+        </div>
+    </div>
+    <script>
+        var i = 1;
+        var bgImgs = document.querySelectorAll(".bg img");
+        var slider = document.querySelector(".slider");
+        slider.onclick = function (e) {
+            bgImgs[e.target.id - 1].style.setProperty("z-index", i);
+            bgImgs[e.target.id - 1].className = " ";
+            setTimeout(() => {
+                bgImgs[e.target.id - 1].className = "change" + e.target.id;
+            }, 0);
+            i++;
+            console.log(bgImgs[e.target.id - 1]);
+        }
+
+    </script>
+
+</body>
+
+</html>
