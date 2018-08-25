@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Day42-Day43</title>
+</head>
+
+<body>
+    <div>查看控制台</div>
+
+    <script>
+
+        // ------------------es5---------------------------------
+        // function Restaurant(info) {
+        //     this.money = info.money;
+        //     this.sets = info.sets;
+        //     this.staff = info.staff;
+        // }
+        // Restaurant.prototype.hire = function (a) {
+        //     this.staff.push(a);
+        // };
+        // Restaurant.prototype.fire = function (b) {
+        //     this.staff = this.staff.find(function (arr) { return arr != b });
+        //     if (this.staff==undefined) this.staff=[];
+        // }
+
+        // function Staff( name, salary,id) {
+        //     this.id = id;
+        //     this.name = name;
+        //     this.salary = salary;
+        // }
+        // Staff.prototype.job = function () {
+        //     console.log("完成一次工作");
+        // };
+
+        // function Server(id, name, salary) {
+        //     Staff.call(this,id, name, salary);
+        // }
+        // Server.prototype.job = function (a) {
+        //     if (a instanceof Array) {
+        //         console.log("记录点菜");
+        //     } else {
+        //         console.log("上菜");
+        //     }
+        // }
+        // Server.prototype.constructor = Server;
+
+        // function Cook(id, name, salary) {
+        //     Staff.call(this,id, name, salary);
+        // }
+        // Cook.prototype.job = function (a) {
+        //     console.log("炒菜一次")
+        // }
+        // Cook.prototype.constructor = Cook;
+
+        // function Client() {
+        //     this.order = function () {
+        //         console.log("点菜")
+        //     }
+        //     this.eat = function () {
+        //         console.log("吃")
+        //     }
+        // }
+
+        // function Food(name, cost, price) {
+        //     this.name = name;
+        //     this.cost = cost;
+        //     this.price = price;
+        // }
+
+        // ------------------es6---------------------------------
+        class Restaurant {
+            constructor(info) {
+                this.money = info.money;
+                this.sets = info.sets;
+                this.staff = info.staff;
+            }
+            hire(a) {
+                this.staff.push(a)
+            }
+            fire(b) {
+                this.staff = this.staff.find(function (arr) { return arr != b });
+                if (this.staff == undefined) this.staff = [];
+            }
+        };
+
+        class Staff {
+            constructor(name, salary, id) {
+                this.id = id;
+                this.name = name;
+                this.salary = salary;
+            }
+            job() {
+                console.log("完成一次工作");
+            };
+        }
+
+        class Server extends Staff {
+            constructor(name, salary, id) {
+                super(name, salary, id);
+            }
+            job(a) {
+                if (a instanceof Array) {
+                    console.log("记录点菜");
+                } else {
+                    console.log("上菜");
+                }
+            }
+        }
+
+        class Cook extends Staff {
+            constructor(name, salary, id) {
+                super(name, salary, id);
+            }
+            job() {
+                console.log("炒菜一次");
+            }
+        }
+
+        class Client {
+            constructor() { }
+            order() {
+                console.log("点菜")
+            }
+            eat() {
+                console.log("吃")
+            }
+        }
+
+        class Food {
+            constructor(name, cost, price) {
+                this.name = name;
+                this.cost = cost;
+                this.price = price;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
